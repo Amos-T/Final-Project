@@ -215,8 +215,8 @@ button:hover {
     gap: 30px;
 }
 
-.items{
-    background-color: beige;
+.item{
+    background-color: azure;
     height: 435px;
     width: 250px;
     gap: 30px;
@@ -514,4 +514,5 @@ button:hover {
   .delete-quantity-link{
     color: red;
   }
+  
   

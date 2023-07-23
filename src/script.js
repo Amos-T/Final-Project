@@ -1,4 +1,4 @@
-
+// Script.js
 const products = [{
     id: "shirt47484",
     image: "./images/t-shirt.avif",
@@ -74,8 +74,8 @@ products.forEach((product) => {
         
             <div class="addToCart">
 
-                <button class="add-btn js-add-btn" 
-                data-product-id="${product.id}">Add to Cart</button>
+                <button class="add-btn js-add-btn add-to-cart" 
+                data-product-id="${product.id}" data-product-name="${product.name}" data-product-price= "${product.price}">Add to Cart</button>
             </div>
     </div>    
 
@@ -108,7 +108,8 @@ document.querySelectorAll('.js-add-btn')
             } else {
             cart.push({
                 productId: productId,
-                quantity: 1
+
+                quantity: 1,
             });
         }
 
