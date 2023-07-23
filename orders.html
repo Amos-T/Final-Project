@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Orders</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="src/style.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -12,28 +12,26 @@
 </head>
 <body>
     <!-- HEADER SECTION -->
-    <nav class="navbar">
+    <div class="navbar">
         <a href="index.html"><h2 title="Home" style="padding-left: 20px;">ShopWithAmos</h2></a>
-
         <div class="header-middle-section">
             <input class="search-bar" type="text" placeholder="Search">
     
             <button class="search-button">
-              <img class="search-icon" src="images/search.png" width="30px" height="40px">
+              <img class="search-icon" src="images/search.png">
             </button>
-        </div>
-
-        <div class="header-right-section">
+          </div>
+    
+          <div class="header-right-section">
             <a class="orders-link header-link" href="orders.html">
               <span class="returns-text">Returns</span>
               <span class="orders-text">& Orders</span>
             </a>
-        </div>
-
         <div class="cart">
             <a href="cart.html"><i title="Cart" class="bi bi-cart4"></i></a>
             <div class="cartAmount">0</div>
         </div>
+    </div>
     </nav>
 
 </body>
