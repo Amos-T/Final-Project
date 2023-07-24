@@ -77,7 +77,7 @@ items.forEach((item) => {
           </div>
 
           <button class="place-order-button button-primary">
-            Place your order
+          <a href="orders.html">Place your order</a>
           </button>
         </div>
       </div>
