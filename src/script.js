@@ -1,5 +1,5 @@
 // Script.js
-const products = [{
+const commodities = [{
     id: "shirt47484",
     image: "./images/t-shirt.avif",
     name: "T-Shirt",
@@ -42,17 +42,17 @@ const products = [{
         
 }];
 
-let productsHTML = '';
+let commoditiesHTML = '';
 
-products.forEach((product) => {
-    productsHTML += `
+commodities.forEach((commodity) => {
+    commoditiesHTML += `
     <div class="items">
-        <img  src=${product.image} class="items-image">
-        <h3 class="desc">${product.name}</h3>
+        <img  src=${commodity.image} class="items-image">
+        <h3 class="desc">${commodity.name}</h3>
 
         <div class="price-quantity">
             <div class="price">
-                <h4><strong># ${product.price}</strong></h4>
+                <h4><strong># ${commodity.price}</strong></h4>
             </div>
             
             <select>
@@ -75,7 +75,7 @@ products.forEach((product) => {
             <div class="addToCart">
 
                 <button class="add-btn js-add-btn add-to-cart" 
-                data-product-id="${product.id}" data-product-name="${product.name}" data-product-price= "${product.price}">Add to Cart</button>
+                data-product-id="${commodity.id}" data-product-name="${commodity.name}" data-product-price= "${commodity.price}">Add to Cart</button>
             </div>
     </div>    
 
@@ -84,30 +84,30 @@ products.forEach((product) => {
 
 });
 
-console.log(productsHTML);
+console.log(commoditiesHTML);
 
-document.querySelector('#shop').innerHTML = productsHTML;
+document.querySelector('#shop').innerHTML = commoditiesHTML;
 
 
 // ADD TO CART BUTTON
 document.querySelectorAll('.js-add-btn')
     .forEach((button) => {
         button.addEventListener('click', () => {
-            const productId = button.dataset.productId;
+            const commodityId = button.dataset.commodityId;
 
-            let matchingItem;
+            let matchingCommodity;
 
-            cart.forEach((item) =>{
-                if (productId === item.productId) {
-                    matchingItem = item;
+            cart.forEach((commodity) =>{
+                if (commodityId === item.commodityId) {
+                    matchingCommodity = commodity;
                 }
             });
 
-            if (matchingItem) {
-                matchingItem.quantity += 1;
+            if (matchingCommodity) {
+                matchingCommodity.quantity += 1;
             } else {
             cart.push({
-                productId: productId,
+                commodityId: commodityId,
 
                 quantity: 1,
             });
@@ -115,8 +115,8 @@ document.querySelectorAll('.js-add-btn')
 
         let cartQuantity = 0;
 
-        cart.forEach((item) => {
-            cartQuantity += item.quantity;
+        cart.forEach((commodity) => {
+            cartQuantity += commodity.quantity;
         });
 
         document.querySelector('.js-cart-quantity').innerHTML = cartQuantity;
@@ -125,5 +125,5 @@ document.querySelectorAll('.js-add-btn')
             console.log(cart);
         });
     });
-
+   
  

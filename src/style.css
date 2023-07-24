@@ -215,15 +215,14 @@ button:hover {
     gap: 30px;
 }
 
-.item{
-    background-color: azure;
-    height: 435px;
-    width: 250px;
-    gap: 30px;
-    margin: 8px 45px;
-    box-shadow: 0 0 20 black;
-    border-radius: 9px;
-    /* border: 2px solid black; */
+.items{
+  background-color: azure;
+  height: 435px;
+  width: 250px;
+  gap: 30px;
+  margin: 8px 45px;
+  box-shadow: 0 0 20 black;
+  border-radius: 9px;
 
 }
 

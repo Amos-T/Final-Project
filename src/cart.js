@@ -1,5 +1,5 @@
 // cart.js
-const items = [{
+const products = [{
     id: "shirt47484",
     image: "./images/t-shirt.avif",
     name: "T-Shirt",
@@ -42,50 +42,10 @@ const items = [{
         
 }];
 
-let itemsHTML = '';
+let productsHTML = '';
 
-items.forEach((item) => {
-    itemsHTML += `
-    <div class="payment-summary">
-          <div class="payment-summary-title">
-            Order Summary
-          </div>
-
-          <div class="payment-summary-row">
-            <div>Items (3):</div>
-            <div class="payment-summary-money"># 135,000</div>
-          </div>
-
-          <div class="payment-summary-row">
-            <div>Shipping &amp; handling:</div>
-            <div class="payment-summary-money"># 400</div>
-          </div>
-
-          <div class="payment-summary-row subtotal-row">
-            <div>Total before tax:</div>
-            <div class="payment-summary-money"># 135,400</div>
-          </div>
-
-          <div class="payment-summary-row">
-            <div>Estimated tax (10%):</div>
-            <div class="payment-summary-money"># 900</div>
-          </div>
-
-          <div class="payment-summary-row total-row">
-            <div>Order total:</div>
-            <div class="payment-summary-money"># 136,300</div>
-          </div>
-
-          <button class="place-order-button button-primary">
-          <a href="orders.html">Place your order</a>
-          </button>
-        </div>
-      </div>
-    </div>
-`;
-});
-
-itemsHTML += `
+products.forEach((product) => {
+    productsHTML += `
     <div class="order-summary">
       <div class="cart-item-container">
         <div class="delivery-date">
@@ -93,17 +53,17 @@ itemsHTML += `
         </div>
         <div class="cart-item-details-grid">
           <img class="product-image"
-            src=${item.image}>
+            src=${product.image}>
         <div class="cart-item-details">
           <div class="product-name">
-            ${item.name}
+            ${product.name}
           </div>
           <div class="product-price">
-            # ${item.price}
+            # ${product.price}
           </div>
           <div class="product-quantity">
             <span>
-              Quantity: <span class="quantity-label">${item.quantity}</span>
+              Quantity: <span class="quantity-label">${product.quantity}</span>
             </span>
             <button class="update-quantity-link link-primary">
               Update
@@ -159,12 +119,52 @@ itemsHTML += `
         </div>
       </div>
     </div>
+`;
+});
+
+productsHTML += `
+<div class="payment-summary">
+<div class="payment-summary-title">
+  Order Summary
+</div>
+
+<div class="payment-summary-row">
+  <div>Items (3):</div>
+  <div class="payment-summary-money"># 135,000</div>
+</div>
+
+<div class="payment-summary-row">
+  <div>Shipping &amp; handling:</div>
+  <div class="payment-summary-money"># 400</div>
+</div>
+
+<div class="payment-summary-row subtotal-row">
+  <div>Total before tax:</div>
+  <div class="payment-summary-money"># 135,400</div>
+</div>
+
+<div class="payment-summary-row">
+  <div>Estimated tax (10%):</div>
+  <div class="payment-summary-money"># 900</div>
+</div>
+
+<div class="payment-summary-row total-row">
+  <div>Order total:</div>
+  <div class="payment-summary-money"># 136,300</div>
+</div>
+
+<button class="place-order-button button-primary">
+<a href="orders.html">Place your order</a>
+</button>
+</div>
+</div>
+</div>
     `;
 
 
-console.log(itemsHTML);
+console.log(productsHTML);
 
-document.querySelector('.items').innerHTML = itemsHTML;
+document.querySelector('.items').innerHTML = productsHTML;
 
 // cart functionality
 
@@ -172,17 +172,17 @@ let cart = [];
 
 document.querySelector('.items').addEventListener('click', (event) => {
     if (event.target.classList.contains('js-add-btn')) {
-      const itemId = event.target.getAttribute('data-id');
-      const itemToAdd = items.find((item) => item.id === itemId);
-      if (itemToAdd) {
-        const existingCartItem = cart.find((item) => item.id === itemId);
-        if (existingCartItem) {
-          existingCartItem.quantity++;
+      const productId = event.target.getAttribute('data-id');
+      const productToAdd = products.find((product) => product.id === productId);
+      if (productToAdd) {
+        const existingCartProduct = cart.find((product) => product.id === productId);
+        if (existingCartProduct) {
+          existingCartProduct.quantity++;
         } else {
           cart.push({
-            id: itemToAdd.id,
-            productName: itemToAdd.name,
-            price: itemToAdd.price,
+            id: productToAdd.id,
+            productName: productToAdd.name,
+            price: productToAdd.price,
             quantity: 1,
           });
         }
@@ -193,18 +193,18 @@ document.querySelector('.items').addEventListener('click', (event) => {
   });
 
 function updateCartUI() {
-  const cartItemsContainer = document.querySelector('#cart-items');
-  if (!cartItemsContainer) return; // Check if #cart-items exists
+  const cartProductsContainer = document.querySelector('#cart-items');
+  if (!cartProductsContainer) return; // Check if #cart-items exists
 
-  cartItemsContainer.innerHTML = '';
+  cartProductsContainer.innerHTML = '';
 
-  cart.forEach((item) => {
-    cartItemsContainer.innerHTML += `
+  cart.forEach((product) => {
+    cartProductsContainer.innerHTML += `
       <div class="cart-item">
           <div class="item-details">
-              <span>${item.productName}</span>
-              <span>Price: # ${item.price}</span>
-              <span>Quantity: ${item.quantity}</span>
+              <span>${product.productName}</span>
+              <span>Price: # ${product.price}</span>
+              <span>Quantity: ${product.quantity}</span>
           </div>
       </div>
     `;
@@ -212,7 +212,7 @@ function updateCartUI() {
 
   //update cart quantity
 
-  let cartQuantity = cart.reduce((total, item) => total + item.quantity, 0);
+  let cartQuantity = cart.reduce((total, product) => total + product.quantity, 0);
   document.querySelector('.cartAmount').textContent = cartQuantity;
 }
 
@@ -223,7 +223,7 @@ document.addEventListener('DOMContentLoaded', () => {
     cart = JSON.parse(cartData);
     updateCartUI();
     // Update cart quantity
-    let cartQuantity = cart.reduce((total, item) => total + item.quantity, 0);
+    let cartQuantity = cart.reduce((total, product) => total + product.quantity, 0);
     document.querySelector('.cartAmount').textContent = cartQuantity;
 }
 });
