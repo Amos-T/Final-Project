@@ -98,7 +98,7 @@ document.querySelectorAll('.js-add-btn')
             let matchingCommodity;
 
             cart.forEach((commodity) =>{
-                if (commodityId === item.commodityId) {
+                if (commodityId === commodity.commodityId) {
                     matchingCommodity = commodity;
                 }
             });
