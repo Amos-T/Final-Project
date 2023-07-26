@@ -14,13 +14,10 @@ h2{
 .navbar{
   display: flex;
   flex-direction: row;
-  margin: 0;
-  flex-wrap: wrap;
   align-items: center;
-  padding: 0;
   line-height: 30px;
   height: 70px;
-  justify-content: space-between;
+  justify-content: space-evenly;
   background-color: rgba(17, 17, 17, 0.945);
   /* color: white; */
   border-radius: 15px;
@@ -33,14 +30,9 @@ h2{
   font-size: 25px;
   color: white;
 }
-.header-middle-section {
-  margin-left: 10px;
-  margin-right: 10px;
-  display: flex;
-}
 
 .search-bar {
-  width: 300px;
+  width: 200px;
   font-size: 16px;
   height: 38px;
   border: none;
@@ -73,10 +65,31 @@ h2{
   margin-top: 2px; */
 }
 
-.header-right-section {
-  width: 180px;
-  flex-shrink: 0;
+.header-middle-section{
   display: flex;
+  align-items: center;
+}
+
+
+.sign-up{
+  background-color: green;
+  color: white;
+  margin: none;
+  padding: 10px;
+}
+.sign-up:hover{
+  cursor: pointer;
+}
+
+.msg-btn{
+  background-color: orange;
+  color: white;
+  margin: none;
+  width: 300px;
+  padding: 10px;
+}
+.msg-btn:hover{
+  cursor: pointer;
 }
 
 .orders-link {
@@ -109,8 +122,7 @@ h2{
 
 .cart{
     position: relative;
-    margin-right: 20px;
-    height: 50px;
+    height: 40px;
     background-color: orangered;
     color: black;
     padding: 7px;
@@ -118,14 +130,13 @@ h2{
     border-radius: 4px;
     align-items: center;
     cursor: pointer;
-
-    top: 10px;
 }
 
 
 
 .bi-cart4{
   color: black;
+  align-self: center;
 }
 .cartAmount{
     position: absolute;

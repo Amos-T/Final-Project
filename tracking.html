@@ -11,30 +11,27 @@
     <link href="https://fonts.googleapis.com/css2?family=Belanosima:wght@400;600&family=Open+Sans:wght@300;400;500&family=Roboto:ital,wght@0,300;0,400;0,500;1,500&display=swap" rel="stylesheet">
 </head>
 <body>
-    <!-- HEADER SECTION -->
-    <nav class="navbar">
-        <a href="index.html"><h2 title="Home" style="padding-left: 20px;">ShopWithAmos</h2></a>
-
+     <!-- HEADER SECTION -->
+     <div class="navbar">
+        <a href="index.html" class="navbar-title" title="Home">ShopWithAmos</a>
         <div class="header-middle-section">
             <input class="search-bar" type="text" placeholder="Search">
-    
             <button class="search-button">
-              <img class="search-icon" src="images/search.png" width="30px" height="40px">
+            <img class="search-icon" src="images/search.png">
             </button>
         </div>
 
-        <div class="header-right-section">
-            <a class="orders-link header-link" href="orders.html">
-              <span class="returns-text">Returns</span>
-              <span class="orders-text">& Orders</span>
-            </a>
-        </div>
-
-        <div class="cart">
+        <a class="orders-link header-link" href="orders.html">
+        <span class="returns-text">Returns</span>
+        <span class="orders-text">& Orders</span>
+        </a>
+        <div class="cart cart-items">
             <a href="cart.html"><i title="Cart" class="bi bi-cart4"></i></a>
-            <div class="cartAmount">0</div>
+            <div class="cartAmount js-cart-quantity">0</div>
         </div>
-    </nav>
+        <a href="signup.html"><button class="sign-up">Sign Up</button></a>
+        
+    </div>
 
 </body>
 </html>
