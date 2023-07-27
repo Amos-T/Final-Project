@@ -81,12 +81,15 @@ h2{
   cursor: pointer;
 }
 
+.msg-div{
+  text-align: center;
+}
 .msg-btn{
-  background-color: orange;
+  background-color: green;
   color: white;
-  margin: none;
-  width: 300px;
+  width: 200px;
   padding: 10px;
+  border: none;
 }
 .msg-btn:hover{
   cursor: pointer;

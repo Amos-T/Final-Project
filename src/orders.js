@@ -109,7 +109,7 @@ items.forEach((item) => {
                 Quantity: ${item.quantity}
               </div>
               <button class="buy-again-button button-primary">
-                <img class="buy-again-icon" src="images/icons/buy-again.png">
+                <img class="buy-again-icon" src="images/buy-again.png">
                 <span class="buy-again-message">Buy it again</span>
               </button>
             </div>

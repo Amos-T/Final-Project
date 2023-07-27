@@ -42,7 +42,7 @@ const commodities = [{
         
 }];
 
-let commoditiesHTML = '';
+var commoditiesHTML = '';
 
 commodities.forEach((commodity) => {
     commoditiesHTML += `
@@ -81,6 +81,11 @@ commodities.forEach((commodity) => {
 
 </div>
 `;
+// commoditiesHTML += `
+//     <div>
+//         <a href="contact.html"><button class="msg-btn">Send a Message</button></a>
+//     </div>
+// `;
 
 });
 
@@ -90,25 +95,17 @@ document.querySelector('#shop').innerHTML = commoditiesHTML;
 
 
 // ADD TO CART BUTTON
-document.querySelectorAll('.js-add-btn')
-    .forEach((button) => {
-        button.addEventListener('click', () => {
-            const commodityId = button.dataset.commodityId;
+document.querySelectorAll('.js-add-btn').forEach((button) => {
+    button.addEventListener('click', () => {
+        const commodityId = button.dataset.commodityId;
 
-            let matchingCommodity;
+        let matchingCommodity = cart.find((commodity) => commodity.commodityId === commodityId);
 
-            cart.forEach((commodity) =>{
-                if (commodityId === commodity.commodityId) {
-                    matchingCommodity = commodity;
-                }
-            });
-
-            if (matchingCommodity) {
-                matchingCommodity.quantity += 1;
-            } else {
+        if (matchingCommodity) {
+            matchingCommodity.quantity += 1;
+        } else {
             cart.push({
                 commodityId: commodityId,
-
                 quantity: 1,
             });
         }
@@ -119,11 +116,12 @@ document.querySelectorAll('.js-add-btn')
             cartQuantity += commodity.quantity;
         });
 
-        document.querySelector('.js-cart-quantity').innerHTML = cartQuantity;
+        document.querySelector('.js-cart-quantity').textContent = cartQuantity;
 
-            console.log(cartQuantity);
-            console.log(cart);
-        });
+        console.log(cartQuantity);
+        console.log(cart);
     });
+});
+
    
  
