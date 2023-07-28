@@ -81,7 +81,7 @@ items.forEach((item) => {
                 Quantity: ${item.quantity}
               </div>
               <button class="buy-again-button button-primary">
-                <img class="buy-again-icon" src="images/icons/buy-again.png">
+                <img class="buy-again-icon" src="images/buy-again.png" width="10px" height="10px">
                 <span class="buy-again-message">Buy it again</span>
               </button>
             </div>
@@ -109,14 +109,14 @@ items.forEach((item) => {
                 Quantity: ${item.quantity}
               </div>
               <button class="buy-again-button button-primary">
-                <img class="buy-again-icon" src="images/buy-again.png">
+                <img class="buy-again-icon" src="images/buy-again.png" width="10px" height="10px">
                 <span class="buy-again-message">Buy it again</span>
               </button>
             </div>
 
             <div class="product-actions">
               <a href="tracking.html">
-                <button class="track-package-button button-secondary">
+                <button class="track-package-button">
                   <a href="tracking.html">Track package</a>
                 </button>
               </a>

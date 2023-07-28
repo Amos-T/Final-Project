@@ -313,6 +313,16 @@ button:hover {
     font-weight: bold;
 }
 
+.track-package-button{
+  background-color: chocolate;
+  color: beige;
+  border: none;
+  padding: 8px 16px;
+}
+.track-package-button:hover{
+  cursor: pointer;
+}
+
 @media (max-width: 1000px) {
     .shop{
         grid-template-columns: repeat(3, 250px) ;
