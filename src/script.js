@@ -1,5 +1,7 @@
 // Script.js
-const commodities = [{
+import {cart} from '. /cart.js';
+
+const products = [{
     id: "shirt47484",
     image: "./images/t-shirt.avif",
     name: "T-Shirt",
@@ -42,17 +44,17 @@ const commodities = [{
         
 }];
 
-var commoditiesHTML = '';
+var productsHTML = '';
 
-commodities.forEach((commodity) => {
-    commoditiesHTML += `
+products.forEach((product) => {
+    productsHTML += `
     <div class="items">
-        <img  src=${commodity.image} class="items-image">
-        <h3 class="desc">${commodity.name}</h3>
+        <img  src=${product.image} class="items-image">
+        <h3 class="desc">${product.name}</h3>
 
         <div class="price-quantity">
             <div class="price">
-                <h4><strong># ${commodity.price}</strong></h4>
+                <h4><strong># ${product.price}</strong></h4>
             </div>
             
             <select>
@@ -75,13 +77,13 @@ commodities.forEach((commodity) => {
             <div class="addToCart">
 
                 <button class="add-btn js-add-btn add-to-cart" 
-                data-product-id="${commodity.id}" data-product-name="${commodity.name}" data-product-price= "${commodity.price}">Add to Cart</button>
+                data-product-id="${product.id}" data-product-name="${product.name}" data-product-price= "${product.price}">Add to Cart</button>
             </div>
     </div>    
 
 </div>
 `;
-// commoditiesHTML += `
+// productsHTML += `
 //     <div>
 //         <a href="contact.html"><button class="msg-btn">Send a Message</button></a>
 //     </div>
@@ -89,31 +91,31 @@ commodities.forEach((commodity) => {
 
 });
 
-console.log(commoditiesHTML);
+console.log(productsHTML);
 
-document.querySelector('#shop').innerHTML = commoditiesHTML;
+document.querySelector('#shop').innerHTML = productsHTML;
 
 
 // ADD TO CART BUTTON
 document.querySelectorAll('.js-add-btn').forEach((button) => {
     button.addEventListener('click', () => {
-        const commodityId = button.dataset.commodityId;
+        const productId = button.dataset.productId;
 
-        let matchingCommodity = cart.find((commodity) => commodity.commodityId === commodityId);
+        let matchingProduct = cart.find((product) => product.productId === productId);
 
-        if (matchingCommodity) {
-            matchingCommodity.quantity += 1;
+        if (matchingProduct) {
+            matchingProduct.quantity += 1;
         } else {
             cart.push({
-                commodityId: commodityId,
+                productId: productId,
                 quantity: 1,
             });
         }
 
         let cartQuantity = 0;
 
-        cart.forEach((commodity) => {
-            cartQuantity += commodity.quantity;
+        cart.forEach((product) => {
+            cartQuantity += product.quantity;
         });
 
         document.querySelector('.js-cart-quantity').textContent = cartQuantity;
