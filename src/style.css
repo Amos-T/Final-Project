@@ -1,6 +1,6 @@
 body{
     font-family: Roboto;
-    background-color: orange;
+    background-color: beige;
 }
 
 body a{
@@ -384,7 +384,7 @@ button:hover {
   .payment-summary {
     border: 1px solid rgb(222, 222, 222);
     border-radius: 4px;
-    padding: 18px;
+    padding: 28px;
   }
   
   .cart-item-container {
@@ -413,7 +413,7 @@ button:hover {
   .cart-item-details-grid {
     display: grid;
     grid-template-columns: 100px 1fr 1fr;
-    column-gap: 25px;
+    column-gap: 35px;
   }
   
   @media (max-width: 1000px) {
@@ -458,7 +458,7 @@ button:hover {
   
   .delivery-option {
     display: grid;
-    grid-template-columns: 24px 1fr;
+    grid-template-columns: 34px 1fr;
     margin-bottom: 12px;
     cursor: pointer;
   }
@@ -538,4 +538,7 @@ button:hover {
     color: red;
   }
   
-  
+  .message{
+    display: flex;
+    flex-wrap: wrap;
+  }

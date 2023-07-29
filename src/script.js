@@ -92,8 +92,6 @@ products.forEach((product) => {
 
 });
 
-console.log(productsHTML);
-
 document.querySelector('#shop').innerHTML = productsHTML;
 
 
@@ -110,7 +108,7 @@ function updateCartQuantity() {
 document.querySelectorAll('.js-add-btn').forEach((button) => {
     button.addEventListener('click', () => {
         const productId = button.dataset.productId;
-       addToCart(productId);
+        addToCart(productId);
         updateCartQuantity();
         
 
