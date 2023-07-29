@@ -1,5 +1,6 @@
 // Script.js
-import {cart} from '. /cart.js';
+import {cart, addToCart} from './cart.js';
+
 
 const products = [{
     id: "shirt47484",
@@ -96,29 +97,22 @@ console.log(productsHTML);
 document.querySelector('#shop').innerHTML = productsHTML;
 
 
-// ADD TO CART BUTTON
+function updateCartQuantity() {
+    let cartQuantity = 0;
+
+    cart.forEach((cartItem) => {
+        cartQuantity += cartItem.quantity;
+    });
+
+    document.querySelector('.js-cart-quantity').textContent = cartQuantity;
+};
+
 document.querySelectorAll('.js-add-btn').forEach((button) => {
     button.addEventListener('click', () => {
         const productId = button.dataset.productId;
-
-        let matchingProduct = cart.find((product) => product.productId === productId);
-
-        if (matchingProduct) {
-            matchingProduct.quantity += 1;
-        } else {
-            cart.push({
-                productId: productId,
-                quantity: 1,
-            });
-        }
-
-        let cartQuantity = 0;
-
-        cart.forEach((product) => {
-            cartQuantity += product.quantity;
-        });
-
-        document.querySelector('.js-cart-quantity').textContent = cartQuantity;
+       addToCart(productId);
+        updateCartQuantity();
+        
 
         console.log(cartQuantity);
         console.log(cart);
@@ -126,4 +120,4 @@ document.querySelectorAll('.js-add-btn').forEach((button) => {
 });
 
    
- 
+  
